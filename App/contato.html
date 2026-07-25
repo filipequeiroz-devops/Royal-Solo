@@ -5,114 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - Royal Solo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --dark-gold: #B8860B;
-            --black: #000000;
-            --white: #FFFFFF;
-            --gray: #222222;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        header {
-            background: linear-gradient(to right, var(--black), var(--gray), var(--black));
-            color: var(--gold);
-            padding: 2rem 1rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23D4AF37" opacity="0.1" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
-            background-size: cover;
-            z-index: 0;
-        }
-
-        header h1 {
-            position: relative;
-            z-index: 1;
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 0.5rem;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        header p {
-            position: relative;
-            z-index: 1;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: var(--black);
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
-        }
-
-        nav a {
-            color: var(--gold);
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            margin: 0 0.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            position: relative;
-            text-transform: uppercase;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        nav a:hover {
-            color: var(--dark-gold);
-        }
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -167,13 +60,15 @@
         // Efeito de rolagem suave
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
 
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Só impede o clique padrão e faz o scroll suave se for um link de ID (#)
+                if(targetId.startsWith('#') && targetId !== '#') {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 

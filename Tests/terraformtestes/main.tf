@@ -16,3 +16,8 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
+
+data "aws_route53_zone" "meu_dominio" {
+  name = "filipe-deabreu.com" #domínio já existente na AWS
+}
+
