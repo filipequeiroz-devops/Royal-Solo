@@ -27,6 +27,8 @@ jobs:
           # Ignore empty alt and favicon checks to prevent strict breaking
           ignore_missing_alt: true
           check_favicon: false
+          #Ignora os links do Instagram, pois a plataforma tem anti bots
+          options: --ignore-urls "/instagram\.com/"
 
       # 2. Checagem de Links Quebrados no código estático
       - name: Check Broken Links
