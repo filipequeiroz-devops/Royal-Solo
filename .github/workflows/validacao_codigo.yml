@@ -6,7 +6,7 @@ on:
       - main
       - master
     paths:
-      - 'app/**'
+      - 'App/**'
       - 'Infraestrutura/**'
       - '.github/workflows/**'
 
@@ -23,7 +23,7 @@ jobs:
       - name: Validate HTML
         uses: anishathalye/proof-html@v2
         with:
-          directory: ./app
+          directory: ./App
           # Ignore empty alt and favicon checks to prevent strict breaking
           ignore_missing_alt: true
           check_favicon: false
@@ -42,15 +42,15 @@ jobs:
           terraform_version: "1.7.0"
 
       - name: Terraform Init (Backend only)
-        working-directory: ./infra
+        working-directory: ./infraestrutura
         run: terraform init -backend=false
 
       - name: Terraform Format Check
-        working-directory: ./infra
+        working-directory: ./infraestrutura
         run: terraform fmt -check
 
       - name: Terraform Validate
-        working-directory: ./infra
+        working-directory: ./infraestrutura
         run: terraform validate
 
   deploy:
