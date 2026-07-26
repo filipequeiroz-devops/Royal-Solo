@@ -299,3 +299,53 @@ footer {
 .contact-link:hover {
     text-decoration: underline;
 }
+
+
+/* Media Query para responsividade */
+@media (max-width: 768px) {
+    header {
+        padding: 3rem 1rem;
+    }
+    header h1 {
+        font-size: 2.5rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a {
+        padding: 0.8rem 1rem;
+        margin: 0.3rem 0;
+    }
+    .main-content,
+    .about-section,
+    .contact-section {
+        padding: 3rem 1rem;
+    }
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+@media (max-width: 480px) {
+    header {
+        padding: 2.5rem 1rem;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .services-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    .genre-tags {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
