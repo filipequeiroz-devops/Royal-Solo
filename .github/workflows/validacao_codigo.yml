@@ -74,9 +74,9 @@ jobs:
           terraform_version: "1.7.0"
 
       - name: Terraform Init
-        working-directory: ./infra
+        working-directory: ./infraestrutura
         run: terraform init
 
       - name: Terraform Apply
-        working-directory: ./infra
+        working-directory: ./infraestrutura
         run: terraform apply -auto-approve
