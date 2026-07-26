@@ -9,15 +9,10 @@ resource "aws_acm_certificate" "royal_solo_cert" {
   
 }
 
-data "aws_route53_zone" "meu_dominio" {
-  name         = "filipe-deabreu.com"
-  private_zone = false
-}
-
 # Cria os registros CNAME no Route53 automaticamente para provar a posse
-resource "aws_route53_record" "daily_personal_performance_cert_validation" {
+resource "aws_route53_record" "royal_solo_cert_validation" {
   for_each = {
-    for dvo in aws_acm_certificate.daily_personal_performance_cert.domain_validation_options : dvo.domain_name => {
+    for dvo in aws_acm_certificate.royal_solo_cert.domain_validation_options : dvo.domain_name => {
       name   = dvo.resource_record_name
       record = dvo.resource_record_value
       type   = dvo.resource_record_type
@@ -34,8 +29,8 @@ resource "aws_route53_record" "daily_personal_performance_cert_validation" {
 
 # Este bloco diz para o Terraform aguardar a AWS confirmar a validação do DNS 
 # antes de dar o deploy como "concluído".
-resource "aws_acm_certificate_validation" "daily_personal_performance_cert_validation_wait" {
+resource "aws_acm_certificate_validation" "royal_solo_cert_validation_wait" {
   provider                = aws.us_east_1
-  certificate_arn         = aws_acm_certificate.daily_personal_performance_cert.arn
-  validation_record_fqdns = [for record in aws_route53_record.daily_personal_performance_cert_validation : record.fqdn]
+  certificate_arn         = aws_acm_certificate.royal_solo_cert.arn
+  validation_record_fqdns = [for record in aws_route53_record.royal_solo_cert_validation : record.fqdn]
 }

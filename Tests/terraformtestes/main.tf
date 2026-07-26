@@ -21,3 +21,6 @@ data "aws_route53_zone" "meu_dominio" {
   name = "filipe-deabreu.com" #domínio já existente na AWS
 }
 
+output "zone_id" {
+  value = data.aws_route53_zone.meu_dominio.zone_id
+}

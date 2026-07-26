@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "royal_solo_bucket" {
-  bucket = "royal_solo_bucket"
+  bucket = "royal-solo-bucket"
 
   tags = {
     Name        = "terraform-states-buckets"
@@ -54,7 +54,7 @@ resource "aws_s3_bucket_website_configuration" "royal_solo_bucket" {
 
 resource "aws_s3_object" "arquivos_aplicacao" {
   for_each = fileset("${path.module}/../App", "**/*")
-  bucket   = aws_s3_bucket.conta_protocolos_website.id
+  bucket   = aws_s3_bucket.royal_solo_bucket.id
   key      = each.value
   source   = "${path.module}/../App/${each.value}"
 

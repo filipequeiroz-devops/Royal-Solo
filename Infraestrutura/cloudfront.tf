@@ -3,8 +3,8 @@
 # Este bloco cria a identidade de segurança do CloudFront. 
 # Ele substitui o antigo OAI e é a forma moderna de acessar o S3 de forma privada.
 # -------------------------------------------------------------------------
-resource "aws_cloudfront_origin_access_control" "daily_performance_oac" {
-  name                              = "OAC-DailyPersonalPerformance"
+resource "aws_cloudfront_origin_access_control" "royal_solo_oac" {
+  name                              = "OAC-royal_solo"
   description                       = "Controle de acesso do CloudFront para o bucket S3"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
@@ -14,15 +14,15 @@ resource "aws_cloudfront_origin_access_control" "daily_performance_oac" {
 # -------------------------------------------------------------------------
 # 2. DISTRIBUIÇÃO CLOUDFRONT
 # -------------------------------------------------------------------------
-resource "aws_cloudfront_distribution" "daily_personal_performance_distribution" {
+resource "aws_cloudfront_distribution" "royal_solo_distribution" {
 
   origin {
     # Aponta para a URL regional do  bucket S3
-    domain_name = aws_s3_bucket.daily_personal_perfomance_website.bucket_regional_domain_name
-    origin_id   = "S3-daily-personal-performance-website"
+    domain_name = aws_s3_bucket.royal_solo_bucket.bucket_regional_domain_name
+    origin_id   = "S3-royal-solo-bucket"
 
     # Vinculando o OAC criado
-    origin_access_control_id = aws_cloudfront_origin_access_control.daily_performance_oac.id
+    origin_access_control_id = aws_cloudfront_origin_access_control.royal_solo_oac.id
   }
 
   enabled             = true
@@ -33,7 +33,7 @@ resource "aws_cloudfront_distribution" "daily_personal_performance_distribution"
   aliases = ["royal-solo.filipe-deabreu.com"]
 
   default_cache_behavior {
-    target_origin_id = "S3-Royal-Solo-website"
+    target_origin_id = "S3-royal-solo-bucket"
 
     # Força qualquer requisição HTTP a ser redirecionada para HTTPS
     viewer_protocol_policy = "redirect-to-https"

@@ -1,7 +1,3 @@
-data "aws_route53_zone" "meu_dominio" {
-  name = "filipe-deabreu.com" #domínio já existente na AWS
-}
-
 resource "aws_route53_record" "royal_solo_cname" {
   zone_id = data.aws_route53_zone.meu_dominio.zone_id
   name    = "royal-solo"
