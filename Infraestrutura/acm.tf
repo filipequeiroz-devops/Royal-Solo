@@ -6,7 +6,7 @@ resource "aws_acm_certificate" "royal_solo_cert" {
   lifecycle {
     create_before_destroy = true
   }
-  
+
 }
 
 # Cria os registros CNAME no Route53 automaticamente para provar a posse
