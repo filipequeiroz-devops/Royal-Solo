@@ -24,6 +24,8 @@ function handler(event) {
     return request;
 }
 EOF
+
+
 }
 
 # -------------------------------------------------------------------------
@@ -60,6 +62,20 @@ resource "aws_cloudfront_distribution" "royal_solo_distribution" {
 
   aliases = ["royal-solo.filipe-deabreu.com"]
 
+  custom_error_response {
+    error_code            = 404
+    response_code         = 404
+    response_page_path    = "/404.html"
+    error_caching_min_ttl = 10
+  }
+
+  custom_error_response {
+    error_code            = 403
+    response_code         = 404
+    response_page_path    = "/404.html" # S3 privado com OAC costuma retornar 403 em vez de 404
+    error_caching_min_ttl = 10
+  }
+
   default_cache_behavior {
     target_origin_id = "S3-royal-solo-bucket"
 
@@ -76,6 +92,8 @@ resource "aws_cloudfront_distribution" "royal_solo_distribution" {
       cookies {
         forward = "none"
       }
+
+
     }
 
     # ---------------------------------------------------------------------
