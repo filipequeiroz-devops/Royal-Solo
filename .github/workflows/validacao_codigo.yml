@@ -28,7 +28,7 @@ jobs:
           ignore_missing_alt: true
           check_favicon: false
           #Ignora os links do Instagram, pois a plataforma tem anti bots
-          options: '--ignore-urls "/instagram\.com/", "/wa\.me/", "/whatsapp\.com/"'
+          options: --disable-external
 
       # 2. Checagem de Links Quebrados no código estático
       - name: Check Broken Links
