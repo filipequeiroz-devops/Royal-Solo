@@ -23,20 +23,26 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_melhorado.css">
 </head>
 
 <body>
-    <header>
-        <h1>&#x1D11E; Royal Solo &#x1D11E;</h1>
-        <p>Violinista profissional para seus eventos especiais</p>
-    </header>
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Royal Solo</h1>
+            <p class="hero-subtitle">Violinista profissional para seus eventos especiais</p>
+            <a href="https://wa.me/5511971308155" class="cta-button" target="_blank">Solicitar Orçamento no WhatsApp</a>
+        </div>
+    </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="contato.html">Contato</a>
-        <a href="orcamento.html">Orçamento</a>
+    <nav class="sticky-nav">
+        <a href="#home">Home</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#repertorio">Repertório</a>
+        <a href="#contato">Contato</a>
     </nav>
 
     <!-- Carrossel de imagens (espaço reservado) -->
@@ -84,6 +90,24 @@
             </div>
         </div>
 
+        <section class="audio-samples">
+            <h2 class="section-title">Demonstrações</h2>
+            <div class="audio-grid">
+                <div class="audio-card">
+                    <h4>Clássico</h4>
+                    <audio controls src="audio/classico.mp3"></audio>
+                </div>
+                <div class="audio-card">
+                    <h4>Pop Instrumental</h4>
+                    <audio controls src="audio/pop.mp3"></audio>
+                </div>
+                <div class="audio-card">
+                    <h4>Tema de Filme</h4>
+                    <audio controls src="audio/filme.mp3"></audio>
+                </div>
+            </div>
+        </section>
+
         <div class="repertoire">
             <h3>Repertório</h3>
             <p>Focado em música pop internacional de artistas como:</p>
@@ -92,6 +116,20 @@
                 <span class="artist-tag">Bruno Mars</span>
                 <span class="artist-tag">John Legend</span>
                 <span class="artist-tag">E muitos outros</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">Depoimentos</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"A apresentação do Filipe no nosso casamento foi impecável. Emocionante e profissional!"</p>
+                <span>- Marina & João</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Contratamos o Royal Solo para um evento corporativo e ficamos impressionados com a elegância e o repertório."</p>
+                <span>- Ana, Gerente de Eventos</span>
             </div>
         </div>
     </section>

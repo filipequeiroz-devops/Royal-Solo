@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento - Royal Solo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>&#x1D11E; Royal Solo &#x1D11E;</h1>
+        <p>Solicite seu Orçamento</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+        <a href="orcamento.html">Orçamento</a>
+    </nav>
+
+    <main>
+        <section id="orcamento">
+            <h1>Orçamento</h1>
+            <p style="text-align: center; margin-bottom: 3rem;">Veja abaixo os pacotes e serviços disponíveis para tornar seu evento inesquecível.</p>
+
+            <div class="pacote">
+                <h2>Pacote Básico</h2>
+                <p>Apresentação com violino, utilizando o equipamento de som disponibilizado pelo contratante.</p>
+                <p class="preco">R$ 300,00</p>
+            </div>
+
+            <div class="pacote">
+                <h2>Pacote Completo</h2>
+                <p>Apresentação com violino, incluindo todo o equipamento de som necessário (caixa de som, microfones, cabos, etc.).</p>
+                <p class="preco">R$ 400,00</p>
+            </div>
+
+            <h2>Serviços Adicionais</h2>
+            <ul>
+                <li><strong>Arranjos Personalizados:</strong> Músicas preparadas especificamente para o seu evento. <span>+R$ 100,00</span></li>
+                <li><strong>Ensaio Assistido:</strong> Acompanhe uma prévia da apresentação e solicite alterações. <span>+R$ 100,00</span></li>
+                <li><strong>Instrumentos Adicionais:</strong>
+                    <ul>
+                        <li>Teclado: <a href="https://www.instagram.com/cynthia.pianista/" target="_blank">Cynthia Maria</a> - R$ 400,00</li>
+                        <li>Saxofone: <a href="https://www.instagram.com/zaqueufdutra/" target="_blank">Zaqueu Dutra</a> - R$ 200,00</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Informações Importantes</h2>
+            <ul>
+                <li>O valor cobre a duração da cerimônia com tolerância de 1 hora de atraso.</li>
+                <li>Cada hora excedente terá um adicional de R$ 50,00.</li>
+                <li>Serviços gratuitos inclusos: consultoria para repertório, sugestões de arranjos e indicação de outros músicos.</li>
+            </ul>
+
+             <p style="text-align: center; margin-top: 3rem;">Para um orçamento detalhado ou para tirar dúvidas, entre em contato pelo WhatsApp: <a href="https://wa.me/5511971308155">11 97130-8155</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Royal Solo - Todos os direitos reservados</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/filipe.royal.solo/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5511971308155" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:contato@royalsolo.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animação ao rolar a página
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            document.querySelector('nav').style.boxShadow =
+                scrollPosition > 10
+                    ? '0 2px 15px rgba(212, 175, 55, 0.5)'
+                    : '0 2px 10px rgba(212, 175, 55, 0.3)';
+        });
+    </script>
+</body>
+</html>
