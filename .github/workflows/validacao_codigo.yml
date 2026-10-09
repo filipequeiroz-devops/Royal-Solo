@@ -27,17 +27,17 @@ jobs:
           # Ignore empty alt and favicon checks to prevent strict breaking
           ignore_missing_alt: true
           check_favicon: false
-          options: --disable-external #Ignora os links do Instagram, pois a plataforma tem anti bots
-          
+          disable_external: true #Ignora os links do Instagram, pois a plataforma tem anti bots
+
 
       # 2. Checagem de Links Quebrados no código estático
       - name: Check Broken Links
         uses: lycheeverse/lychee-action@v1.9.3
         with:
           # Verifica links locais e URLs relativas dentro da pasta application
-          args: "--offline --include-fragments ./app/**/*.html"
-          exclude: 'https://www.instagram.com'
-          
+          args: "--exclude 'instagram.com' --offline --include-fragments ./App/**/*.html"
+
+
 
       # 3. Validação do Terraform
       - name: Setup Terraform
