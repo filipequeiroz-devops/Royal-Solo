@@ -36,6 +36,7 @@ jobs:
         with:
           # Verifica links locais e URLs relativas dentro da pasta application
           args: "--offline --include-fragments ./app/**/*.html"
+          exclude: 'https://www.instagram.com'
           
 
       # 3. Validação do Terraform
